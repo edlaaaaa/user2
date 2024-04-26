@@ -1,4 +1,5 @@
 import UserProfile from './Components/UserProfile/index'
+import {Component} from 'react'
 
 const userDetailsList = [
   {
@@ -30,9 +31,14 @@ const userDetailsList = [
 class App extends Component {
   state = {searchInput: ' '}
   onChangeSearchInput = event => {
-    this.setState({searchInput: event, target, value})
-    render(){
-    const {setInterval} = this.state
+    this.setState({searchInput: event.target.value})
+ render() {
+    const {searchInput} = this.state
+    console.log(searchInput)
+  }
+    const searchResults = userDetailsList.filter(eachUser =>
+      eachUser.name.includes(searchInput),
+    )
     return (
       <div className="search-container">
         <h1 className="main -head">Users List</h1>
@@ -40,11 +46,11 @@ class App extends Component {
       </div>
     )
   }
-  }
+}
 ;<ul>
-  {userDetailsList.map(eachItem => (
+  {userResults.map(eachItem => (
     <UserProfile userDetails={eachItem} key={eachItem.uniqueId} />
   ))}
 </ul>
-  
+</div>
 export default App
