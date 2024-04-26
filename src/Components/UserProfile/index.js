@@ -1,3 +1,5 @@
+import './index.css'
+
 const UserProfile = props => {
   const {userDetails} = props
   const {imageUrl, name, role} = userDetails
