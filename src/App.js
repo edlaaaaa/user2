@@ -29,14 +29,16 @@ const userDetailsList = [
 ]
 
 class App extends Component {
-  state = {searchInput: ' '}
+  state = {searchInput: ''}
+  
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
- render() {
+  }
+ render(){
     const {searchInput} = this.state
     console.log(searchInput)
   }
-    const searchResults = userDetailsList.filter(eachUser =>
+    const searchInput = userDetailsList.filter(eachUser =>
       eachUser.name.includes(searchInput),
     )
     return (
@@ -52,5 +54,5 @@ class App extends Component {
     <UserProfile userDetails={eachItem} key={eachItem.uniqueId} />
   ))}
 </ul>
-</div>
+
 export default App
