@@ -1,5 +1,6 @@
-import UserProfile from './Components/UserProfile/index'
 import {Component} from 'react'
+
+import UserProfile from './Components/UserProfile/index'
 
 const userDetailsList = [
   {
@@ -36,7 +37,7 @@ class App extends Component {
   }
 
   render() {
-    const searchInput = this.state
+    const {searchInput} = this.state
     const searchResults = userDetailsList.filter(eachUser =>
       eachUser.name.includes(searchInput),
     )
@@ -50,7 +51,7 @@ class App extends Component {
         />
         <ul>
           {searchResults.map(eachItem => (
-            <UserProfile userDetailsList={eachItem} key={eachItem.uniqueId} />
+            <UserProfile userDetails={eachItem} key={eachItem.uniqueId} />
           ))}
         </ul>
       </div>
