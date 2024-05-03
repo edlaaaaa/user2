@@ -38,7 +38,7 @@ class App extends Component {
     const {searchInput} = this.state
     console.log(searchInput)
   }
-    const searchInput = userDetailsList.filter(eachUser =>
+    const userResults = userDetailsList.filter(eachUser =>
       eachUser.name.includes(searchInput),
     )
     return (
@@ -46,13 +46,14 @@ class App extends Component {
         <h1 className="main -head">Users List</h1>
         <input type="search" onClick={this.onChangeSearchInput} />
       </div>
-    )
-  }
-}
-;<ul>
+    <ul>
   {userResults.map(eachItem => (
     <UserProfile userDetails={eachItem} key={eachItem.uniqueId} />
   ))}
 </ul>
+
+    )
+  }
+}
 
 export default App
